@@ -10,6 +10,7 @@ etfs:
   XLC: Communication Services
   XLU: Utilities
   XLB: Materials
+  XBI: Biotechnology
 periods:
   - 1d
   - 5d
@@ -26,3 +27,15 @@ period_weights:
     3mo: 0.5
     6mo: 0.3
     1y: 0.2
+thresholds:
+  momentum: 0.2
+  bias: 0.5
+  neutral: 0.1
+short_term_periods:
+  - 1d
+  - 5d
+  - 1mo
+long_term_periods:
+  - 3mo
+  - 6mo
+  - 1y
