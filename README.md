@@ -3,21 +3,23 @@ A Streamlit-based web app for monitoring broad stock market activity. Vibe codin
 Installation
 
 Clone the repository:
-```text
+```
 clone https://github.com/fredrikbacke92/Vibing-stock-terminal.git
 cd vibing_stock_terminal
-
+```
 Create a virtual environment:
-```text
+```
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
+```
 Install dependencies:
-textpip install -r requirements.txt
-
+```
+install -r requirements.txt
+```
 Run the app:
-textstreamlit run app.py
-
+```
+streamlit run app.py
+```
 Open http://localhost:8501 in your browser.
 
 Usage
@@ -27,17 +29,19 @@ Choose an ETF for detailed charts and data.
 Enable auto-refresh for updates every 5 minutes.
 
 Project Structure
-
+```
 app.py: Main entry point.
 src/data/: Data fetching and processing.
 src/models/: Data models.
 src/ui/: UI components and pages.
 config/: Configuration files.
 tests/: Unit tests.
-
+```
 Testing
 Run tests:
-textpytest tests/
+```
+pytest tests/
+
 Notes
 
 Uses Yahoo Finance via yfinance, which may have delays or rate limits.
