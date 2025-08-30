@@ -2,19 +2,19 @@ Vibing Stock Terminal
 A Streamlit-based web app for monitoring broad stock market activity. Vibe coding project, mostly for personal use.
 Installation
 
-Clone the repository:git clone https://github.com/fredrikbacke92/Vibing-stock-terminal.git
+Clone the repository:
+textgit clone https://github.com/fredrikbacke92/Vibing-stock-terminal.git
 cd vibing_stock_terminal
 
-
-Create a virtual environment:python -m venv .venv
+Create a virtual environment:
+textpython -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
+Install dependencies:
+textpip install -r requirements.txt
 
-Install dependencies:pip install -r requirements.txt
-
-
-Run the app:streamlit run app.py
-
+Run the app:
+textstreamlit run app.py
 
 Open http://localhost:8501 in your browser.
 
@@ -35,8 +35,7 @@ tests/: Unit tests.
 
 Testing
 Run tests:
-pytest tests/
-
+textpytest tests/
 Notes
 
 Uses Yahoo Finance via yfinance, which may have delays or rate limits.
