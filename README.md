@@ -3,12 +3,13 @@ A Streamlit-based web app for monitoring broad stock market activity. Vibe codin
 Installation
 
 Clone the repository:
-```bash
+```text
 clone https://github.com/fredrikbacke92/Vibing-stock-terminal.git
 cd vibing_stock_terminal
 
 Create a virtual environment:
-textpython -m venv .venv
+```text
+python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 Install dependencies:
