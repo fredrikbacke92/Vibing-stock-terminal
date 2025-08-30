@@ -19,12 +19,3 @@ Run the app:
 streamlit run app.py
 ```
 Open http://localhost:8501 in your browser.
-```
-Testing
-Run tests:
-```
-pytest tests/
-```
-
-License
-MIT License (see LICENSE).
