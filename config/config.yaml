@@ -1,0 +1,19 @@
+etfs:
+  XLV: Health Care
+  XLI: Industrials
+  XLK: Technology
+  XLRE: Real Estate
+  XLE: Energy
+  XLP: Consumer Staples
+  XLY: Consumer Discretionary
+  XLF: Financials
+  XLC: Communication Services
+  XLU: Utilities
+  XLB: Materials
+periods:
+  - 1d
+  - 5d
+  - 1mo
+  - 3mo
+  - 6mo
+  - 1y
