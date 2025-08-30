@@ -16,38 +16,41 @@ def safe_format(value: float, fmt: str) -> str:
     """
     return fmt.format(value) if pd.notnull(value) else "-"
 
-def render_performance_table(df: pd.DataFrame, periods: list[str]) -> None:
+def render_order_flow_table(df: pd.DataFrame, periods: list[str]) -> None:
     """
-    Render a table of sector performance.
+    Render a table of order flow scores.
     
     Args:
-        df: DataFrame with performance data.
+        df: DataFrame with order flow scores.
         periods: List of periods (e.g., ['1d', '1mo']).
     """
     format_dict = {
         'Price': lambda x: safe_format(x, '{:.2f}'),
-        'Volume': lambda x: safe_format(x, '{:,.0f}')
+        'Volume': lambda x: safe_format(x, '{:,.0f}'),
+        'Short-term Order Flow Score': lambda x: safe_format(x, '{:.2f}'),
+        'Long-term Order Flow Score': lambda x: safe_format(x, '{:.2f}')
     }
     format_dict.update({f'{p} Change (%)': lambda x: safe_format(x, '{:.2f}%') for p in periods})
-    st.dataframe(df.style.format(format_dict))
+    format_dict.update({f'{p} Volume': lambda x: safe_format(x, '{:,.0f}') for p in periods})
+    st.dataframe(df[['Ticker', 'Sector', 'Short-term Order Flow Score', 'Long-term Order Flow Score'] + [f'{p} Change (%)' for p in periods] + [f'{p} Volume' for p in periods]].style.format(format_dict))
 
-def render_performance_chart(df: pd.DataFrame, sort_period: str, periods: list[str]) -> None:
+def render_order_flow_chart(df: pd.DataFrame, sort_score: str, periods: list[str]) -> None:
     """
-    Render a bar chart of sector performance.
+    Render a bar chart of order flow scores.
     
     Args:
-        df: DataFrame with performance data.
-        sort_period: Period to display (e.g., '1mo').
-        periods: List of all periods for hover data.
+        df: DataFrame with order flow scores.
+        sort_score: Score to display ('Short-term Order Flow Score' or 'Long-term Order Flow Score').
+        periods: List of periods for hover data.
     """
     fig = px.bar(
         df,
         x='Sector',
-        y=f'{sort_period} Change (%)',
-        title=f"Sector Performance ({sort_period} % Change)",
-        color=f'{sort_period} Change (%)',
+        y=sort_score,
+        title=f"{sort_score} by Sector",
+        color=sort_score,
         color_continuous_scale='RdYlGn',
-        hover_data=['Ticker', 'Price', 'Volume'] + [f'{p} Change (%)' for p in periods]
+        hover_data=['Ticker', 'Price', 'Volume'] + [f'{p} Change (%)' for p in periods] + [f'{p} Volume' for p in periods]
     )
     st.plotly_chart(fig)
 

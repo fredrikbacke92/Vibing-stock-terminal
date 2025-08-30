@@ -14,7 +14,7 @@ def main():
     st.set_page_config(page_title="Stock Market Terminal", layout="wide")
     config = load_config()
     sector_data = fetch_sector_performance(config["periods"])
-    render_sector_rotation_page(sector_data, config["etfs"], config["periods"])
+    render_sector_rotation_page(sector_data, config["etfs"], config["periods"], config["period_weights"])
 
 if __name__ == "__main__":
     main()

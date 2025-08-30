@@ -17,3 +17,12 @@ periods:
   - 3mo
   - 6mo
   - 1y
+period_weights:
+  short_term:
+    1d: 0.2
+    5d: 0.4
+    1mo: 0.4
+  long_term:
+    3mo: 0.5
+    6mo: 0.3
+    1y: 0.2
