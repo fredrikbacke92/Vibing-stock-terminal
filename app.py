@@ -1,8 +1,11 @@
+# app.py
 import streamlit as st
 import yaml
 from pathlib import Path
-from src.data.fetchers import fetch_sector_performance
-from src.ui.pages import render_sector_rotation_page
+from src.data.fetchers.etf_data import fetch_sector_performance
+from src.ui.pages.sector_rotation import render_sector_rotation_page
+from src.ui.pages.options import render_options_page
+from src.ui.pages.geo_flow import render_geo_flow_page
 
 st.set_page_config(layout="wide")  # Make the app full-width for wider table
 
@@ -16,16 +19,25 @@ except FileNotFoundError:
     st.error(f"Error: config.yaml not found at {config_path}. Please ensure the file exists in the config/ folder.")
     st.stop()
 
-# Fetch sector data
-sector_data = fetch_sector_performance(config['periods'])
+# Define pages for tabbed navigation
+pages = [
+    st.Page(
+        lambda: render_sector_rotation_page(
+            sector_data=fetch_sector_performance(config['periods']),
+            etfs=config['etfs'],
+            periods=config['periods'],
+            period_weights=config['period_weights'],
+            short_term_periods=config['short_term_periods'],
+            long_term_periods=config['long_term_periods'],
+            thresholds=config['thresholds'],
+            sector_stocks=config['sector_stocks']
+        ),
+        title="Sector Rotation"
+    ),
+    st.Page(render_options_page, title="Options Chain"),
+    st.Page(render_geo_flow_page, title="Geographical Flow")
+]
 
-# Render the sector rotation page
-render_sector_rotation_page(
-    sector_data=sector_data,
-    etfs=config['etfs'],
-    periods=config['periods'],
-    period_weights=config['period_weights'],
-    short_term_periods=config['short_term_periods'],
-    long_term_periods=config['long_term_periods'],
-    thresholds=config['thresholds']
-)
+# Render tabbed navigation
+pg = st.navigation(pages)
+pg.run()

@@ -39,3 +39,16 @@ long_term_periods:
   - 3mo
   - 6mo
   - 1y
+sector_stocks:
+  Health Care: ['LLY', 'UNH', 'JNJ', 'ABBV', 'MRK', 'AMGN', 'TMO', 'HCA', 'ABT', 'PFE', 'ISRG', 'SYK', 'BSX', 'MDT', 'REGN', 'VRTX', 'BDX', 'CI', 'MRNA', 'GILD', 'BIIB', 'IQV', 'BGNE', 'ARGX', 'CELC', 'KOD', 'ZIMV']
+  Industrials: ['GE', 'RTX', 'CAT', 'BA', 'ETN', 'HON', 'LMT', 'DE', 'UPS', 'UNP', 'TDG', 'GD', 'PH', 'CSX', 'ITW', 'NOC', 'EMR', 'CTAS', 'HWM', 'IR', 'DAL', 'FAST', 'PWR', 'PAYX', 'DY', 'GTIM', 'DLHC']
+  Technology: ['MSFT', 'NVDA', 'AVGO', 'ORCL', 'AMD', 'CRM', 'ADBE', 'CSCO', 'QCOM', 'ACN', 'INTC', 'IBM', 'TXN', 'NOW', 'INTU', 'AMAT', 'UBER', 'MU', 'PANW', 'LRCX', 'ADI', 'KLAC', 'ANET', 'PLTR', 'SMWB', 'AILE', 'NOTE']
+  Real Estate: ['PLD', 'AMT', 'EQIX', 'WELL', 'O', 'SPG', 'DLR', 'CCI', 'PSA', 'VICI', 'AVB', 'IRM', 'EQR', 'EXR', 'VTR', 'INVH', 'ESS', 'MAA', 'SUI', 'UDR', 'CPT', 'AMH', 'ELS', 'CUBE', 'AIV', 'UMH', 'NTST']
+  Energy: ['XOM', 'CVX', 'COP', 'EOG', 'SLB', 'MPC', 'PSX', 'LNG', 'VLO', 'WMB', 'OKE', 'KMI', 'OXY', 'HAL', 'BKR', 'FANG', 'TRGP', 'HES', 'DVN', 'CTRA', 'EQT', 'TS', 'MRO', 'APA', 'TALO', 'STR', 'PARR']
+  Consumer Staples: ['PG', 'KO', 'PEP', 'COST', 'WMT', 'PM', 'UL', 'MO', 'MDLZ', 'CL', 'TGT', 'STZ', 'KHC', 'MNST', 'KMB', 'GIS', 'HSY', 'SYY', 'KDP', 'KVUE', 'KR', 'DG', 'ADM', 'DLTR', 'THS', 'JJSF', 'SMPL']
+  Consumer Discretionary: ['AMZN', 'TSLA', 'HD', 'TM', 'MCD', 'LOW', 'BKNG', 'TJX', 'CMG', 'GM', 'MELI', 'NKE', 'SBUX', 'LVS', 'DHI', 'LEN', 'MAR', 'ORLY', 'AZO', 'ROST', 'F', 'HLT', 'TSCO', 'EBAY', 'PLAY', 'DIN', 'CHUY']
+  Financials: ['JPM', 'V', 'MA', 'BAC', 'WFC', 'GS', 'AXP', 'BX', 'MS', 'C', 'SCHW', 'PGR', 'CB', 'BLK', 'MMC', 'CME', 'ICE', 'USB', 'PNC', 'TFC', 'AON', 'AJG', 'TRV', 'AIG', 'LMND', 'SAFT', 'EIG']
+  Communication Services: ['GOOGL', 'META', 'NFLX', 'TMUS', 'DIS', 'T', 'VZ', 'CMCSA', 'CHTR', 'TTWO', 'EA', 'WBD', 'OMC', 'LYV', 'IPG', 'ROKU', 'WMG', 'NWSA', 'FOXA', 'PARA', 'NYT', 'TGNA', 'NXST', 'MSGS', 'HOFV', 'MDIA', 'SALM']
+  Utilities: ['NEE', 'SO', 'DUK', 'CEG', 'AEP', 'SRE', 'D', 'EXC', 'PCG', 'PEG', 'ED', 'XEL', 'EIX', 'WEC', 'VST', 'AWK', 'DTE', 'ETR', 'CNP', 'LNT', 'ATO', 'CMS', 'AES', 'NI', 'YORW', 'ARTNA', 'MSEX']
+  Materials: ['LIN', 'SHW', 'FCX', 'APD', 'ECL', 'DOW', 'CTVA', 'VMC', 'MLM', 'NEM', 'NUE', 'PPG', 'IFF', 'STLD', 'LYB', 'BALL', 'AVY', 'RS', 'PKG', 'ALB', 'AMCR', 'IP', 'CF', 'MOS', 'OEC', 'ECVT', 'ASIX']
+  Biotechnology: ['VRTX', 'REGN', 'MRNA', 'GILD', 'BIIB', 'ARGX', 'IQV', 'BGNE', 'INCY', 'ALNY', 'SRPT', 'BMRN', 'NBIX', 'TECH', 'CRSP', 'NTLA', 'ARWR', 'IONS', 'HALO', 'EXEL', 'MDGL', 'KRYS', 'LEGN', 'ASND', 'VIR', 'ARQT', 'KYMR']

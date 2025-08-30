@@ -1,16 +1,18 @@
+# src/data/fetchers/etf_data.py
 import yfinance as yf
 import pandas as pd
 import streamlit as st
 import numpy as np
 from datetime import datetime, timedelta
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
 def fetch_sector_performance(periods: list[str]) -> pd.DataFrame:
     """
     Fetch performance and volume data for sector ETFs across multiple periods.
-   
+    
     Args:
         periods: List of time periods (e.g., ['1d', '5d', '1mo']).
-   
+    
     Returns:
         DataFrame with ETF performance and volume data.
     """
@@ -30,8 +32,8 @@ def fetch_sector_performance(periods: list[str]) -> pd.DataFrame:
     }
     data = []
     today = datetime.now()
-    is_weekend = today.weekday() >= 5 # Saturday (5) or Sunday (6)
-   
+    is_weekend = today.weekday() >= 5  # Saturday (5) or Sunday (6)
+    
     for ticker, sector in sector_etfs.items():
         try:
             yf_ticker = yf.Ticker(ticker)
@@ -73,7 +75,7 @@ def fetch_sector_performance(periods: list[str]) -> pd.DataFrame:
             data.append(row)
         except Exception as e:
             st.error(f"Error fetching data for {ticker}: {e}")
-   
+    
     df = pd.DataFrame(data)
     numeric_cols = ['Price', 'Volume'] + [f'{p} Change (%)' for p in periods] + [f'{p} Volume' for p in periods] + [f'{p} Avg Volume' for p in periods]
     df[numeric_cols] = df[numeric_cols].apply(pd.to_numeric, errors='coerce')
@@ -82,15 +84,16 @@ def fetch_sector_performance(periods: list[str]) -> pd.DataFrame:
         st.warning(f"Dropped tickers due to missing Price data: {', '.join(dropped_tickers)}")
     return df.dropna(subset=['Price'])
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
 def fetch_historical_sector_data(tickers: list[str], start_date: str, end_date: str) -> pd.DataFrame:
     """
     Fetch historical daily price and volume data for sector ETFs.
-   
+    
     Args:
         tickers: List of ETF ticker symbols.
         start_date: Start date for data (YYYY-MM-DD).
         end_date: End date for data (YYYY-MM-DD).
-   
+    
     Returns:
         DataFrame with daily Close and Volume for each ticker.
     """
