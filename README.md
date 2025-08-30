@@ -41,7 +41,7 @@ Testing
 Run tests:
 ```
 pytest tests/
-
+```
 Notes
 
 Uses Yahoo Finance via yfinance, which may have delays or rate limits.
